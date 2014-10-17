@@ -123,10 +123,15 @@ function facebook_connect_button($forward = '', $callback = '', $options = array
   $options = array_merge($default_options, $options);
 
   $js_arguments = array("'".rawurlencode($forward)."'");
-  if ($callback != '')
-  {
-    array_push($js_arguments,$callback);
+
+  // Ensure that the same number of elements is kept
+  if ($callback) {
+      array_push($js_arguments, $callback);
+  } else {
+      array_push($js_arguments, "''");
   }
+  // Add permissions to ask
+  array_push($js_arguments, "'".rawurlencode(sfConfig::get('app_facebook_app_permissions'))."'");
 
   $html =
   '

@@ -9,6 +9,8 @@ all:
     app_url: '/my-app'
     guard_adapter: ~
     js_framework: none # none, jQuery or prototype.
+    # App permissions to request to the user
+    app_permissions: '' # comma-separated permissions
 
     # It is highly recommended to use a js framework if you want a correct experience in IE
 
